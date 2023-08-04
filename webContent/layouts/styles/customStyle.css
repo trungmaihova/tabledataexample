@@ -1,0 +1,61 @@
+@CHARSET "ISO-8859-1";
+
+
+/** set width for table **/
+
+.table-cell {
+	white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+
+.width10px {
+	width: 10px !important;
+}
+
+.width20px {
+	width: 20px !important;
+}
+
+.width30px {
+	width: 30px !important;
+}
+
+.width50px {
+	width: 50px !important;
+}
+
+.width70px {
+	width: 70px !important;
+}
+
+.width80px {
+	width: 80px !important;
+}
+
+.width100px {
+	width: 100px !important;
+}
+
+.width120px {
+	width: 120px !important;
+}
+
+.width150px {
+	width: 150px !important;
+}
+
+.width180px {
+	width: 180px !important;
+}
+
+
+.width200px {
+	width: 200px !important;
+}
+
+.width250px {
+	width: 250px !important;
+}
+

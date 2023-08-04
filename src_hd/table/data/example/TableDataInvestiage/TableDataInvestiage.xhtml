@@ -1,0 +1,90 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/frame-10-full-width.xhtml">
+		<ui:define name="title">TableDataInvestiage</ui:define>
+		<ui:define name="content">
+			<script>
+				window.isHideCaseInfo = true;
+				window.isHideTaskAction = true;
+				window.isWorkingOnATask = false;
+				
+				//Removal of the html scroll bar as a workaround for Chrome making the page to big when using many rows
+				var style = document.createElement("style");
+				style.innerHTML = `body::-webkit-scrollbar {display: none;}`;
+				document.head.appendChild(style);
+			</script>
+			<h:outputStylesheet name="layouts/styles/primeflex.min.css" />
+			<h:outputStylesheet name="layouts/styles/customStyle.css" />
+
+			<h3>Table Overview</h3>
+			<p:divider align="left" type="solid" />
+
+			<h:form id="form" style="height:90vh" class="col">
+				<p:messages />
+
+				<p:dataTable id="theTable" widgetVar="theTable" lazy="true"
+					value="#{tableDataBean.customers}" var="customer"
+					
+					rowKey="#{customer.id}" rowIndexVar="index" sortMode="single"
+					selectionMode="single" 
+					
+					rowsPerPageTemplate="5,8,10,15,20,25,50"
+					rows="8" paginator="true" paginatorPosition="top"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+					
+					
+					scrollable="true" scrollHeight="100%" style="height:91vh"
+					showGridlines="true" resizableColumns="true" multiViewState="true">
+
+					<p:column headerText="Id" styleClass="table-cell width80px">
+						<h:outputText value="#{customer.id}" />
+					</p:column>
+
+					<p:column headerText="First Name" filterBy="#{customer.firstName}"
+						sortBy="#{customer.firstName}" styleClass="table-cell width80px">
+						<h:outputText value="#{customer.firstName}" />
+					</p:column>
+
+					<p:column headerText="Last Name Last Name Last Name"
+						filterBy="#{customer.lastName}" sortBy="#{customer.lastName}"
+						styleClass="table-cell width80px">
+						<h:outputText value="#{customer.lastName}" />
+					</p:column>
+
+					<p:column headerText="Full Name" filterBy="#{customer.fullName}"
+						sortBy="#{customer.fullName}" styleClass="table-cell width120px">
+						<h:outputText value="#{customer.fullName}" />
+					</p:column>
+
+					<p:column headerText="Phone" styleClass="table-cell width80px">
+						<h:outputText value="#{customer.phone}" />
+					</p:column>
+
+					<p:column headerText="Country" styleClass="table-cell width80px">
+						<h:outputText value="#{customer.country}" />
+					</p:column>
+
+					<p:column headerText="Address" styleClass="table-cell width80px">
+						<h:outputText value="#{customer.address}" />
+					</p:column>
+
+					<p:column headerText="Company" styleClass="table-cell width180px">
+						<h:outputText value="#{customer.company}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>
