@@ -66,14 +66,17 @@ function fixTableHeaderMarginRight(tableStypeClass) {
 	//Another case here
 }
 
+function handleTableScroll(){
+	fixTableHeaderMarginRight('table-scroll-handle')
+}
 
 window.onload = function findedPageLoading() {
 	console.log("On finished loading page")
-	fixTableHeaderMarginRight('table-scroll-handle')
+	handleTableScroll()
 }
 
 window.addEventListener('resize', function() {
 	console.log("On resize")
-	fixTableHeaderMarginRight('table-scroll-handle')
+	 window.requestAnimationFrame(handleTableScroll);	
 }, true);
 
